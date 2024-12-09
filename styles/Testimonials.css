@@ -1,0 +1,110 @@
+.testimonial-container {
+  padding: 40px 20px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+}
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; 
+  object-fit: cover; 
+  margin-bottom: 15px;
+  border: 3px solid #f0f0f0;
+}
+
+.testimonial-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  height: 350px; /* Increase card height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.testimonial-author {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+}
+
+.testimonial-navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 50%;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #007bff;
+}
+
+.dot:hover {
+  background-color: #007bff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .testimonial-cards {
+    grid-template-columns: 1fr; /* Show 1 testimonial at a time on mobile */
+  }
+
+  .testimonial-card {
+    height: auto;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .testimonial-cards {
+    grid-template-columns: repeat(2, 1fr); /* Show 2 testimonials at a time on tablet */
+  }
+}
+
+@media (min-width: 1025px) {
+  .testimonial-cards {
+    grid-template-columns: repeat(3, 1fr); /* Show 3 testimonials at a time on large screens */
+  }
+}
