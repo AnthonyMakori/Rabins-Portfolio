@@ -37,7 +37,7 @@ const Home = () => {
   }, [currentText, isDeleting, roleIndex]);
 
   return (
-    <section id="home">
+    <section id="home" style={{paddingLeft:'20px'}}>
       <div className="home-container">
         <div className="overlay">
           <div className="content">

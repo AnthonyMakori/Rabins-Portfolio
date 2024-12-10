@@ -3,7 +3,7 @@ import { FaPen, FaFilm, FaCamera, FaUsers } from 'react-icons/fa';
 
 const Facts = () => {
   return (
-    <section id="facts">
+    <section id="facts" style={{ paddingLeft: '20px' }}>
     <div
       className="bg-cover bg-center p-8 rounded-lg"
       style={{ backgroundImage: 'url(background/back.webp)' }}

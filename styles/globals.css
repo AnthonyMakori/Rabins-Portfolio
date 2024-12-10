@@ -17,6 +17,16 @@
     --foreground: #ededed;
   }
 }
+@layer utilities {
+  .sidebar {
+    @apply fixed top-0 left-[-100%] h-screen w-72 bg-gray-900 text-white transition-all duration-300;
+  }
+
+  .sidebar.open {
+    @apply left-0;
+  }
+}
+
 
 body {
   color: var(--foreground);
@@ -45,3 +55,46 @@ a {
 a:hover {
   background-color: #2d3748;
 }
+/* Ensure the body has no overflow */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  box-sizing: border-box;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Sidebar is hidden off-screen */
+  width: 16rem; /* 72 in Tailwind (w-72) */
+  height: 100vh; /* Full screen height */
+  background-color: #1a202c; /* Equivalent to bg-gray-900 */
+  color: #fff; /* Text color */
+  transition: left 0.3s ease-in-out; /* Smooth slide-in effect */
+  z-index: 50; /* Ensures it sits above other content */
+}
+
+.sidebar.open {
+  left: 0; /* Sidebar appears */
+}
+
+/* Footer Position for Sidebar */
+.sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #2d3748; /* Equivalent to bg-gray-800 */
+}
+
+/* Hamburger Button Position */
+.hamburger-button {
+  position: absolute;
+  top: 1rem; /* Adjusted distance from top */
+  left: 1rem; /* Adjusted distance from left */
+  z-index: 60; /* Above sidebar */
+  color: #fff; /* Icon color */
+  font-size: 1.75rem; /* Larger size */
+}
+

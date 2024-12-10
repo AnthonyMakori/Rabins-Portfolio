@@ -11,7 +11,7 @@ const About = () => {
   const calculatedAge = monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthday.getDate()) ? age - 1 : age;
 
   return (
-    <section id="about">
+    <section id="about" style={{ paddingLeft: '20px' }}>
       <div className="bg-blue-100 p-8 rounded-lg">
         <h2 className="text-3xl font-semibold mb-4 text-blue-600">About</h2>
 

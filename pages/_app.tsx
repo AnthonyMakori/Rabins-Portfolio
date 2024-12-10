@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="ml-64 w-full">
+      <div className="w-full lg:ml-60"> {/* 64px margin on large screens */}
         <Component {...pageProps} />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaLinkedin, FaWhatsapp, FaTwitter, FaFacebook, FaYoutube, FaTiktok, FaBars, FaPencilAlt, FaRegHandshake, FaBuilding } from 'react-icons/fa';
-import Image from 'next/image'; // Import the Image component for optimization
+import Image from 'next/image'; 
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -37,33 +37,36 @@ const Sidebar = () => {
       {/* Hamburger Icon for Small Screens */}
       <button
         onClick={toggleSidebar}
-        className="lg:hidden absolute top-4 left-4 text-white text-3xl z-50"
+        className="lg:hidden fixed top-4 left-4 text-white text-3xl z-50"
       >
         <FaBars />
       </button>
 
       {/* Sidebar */}
       <aside
-        className={`${
-          isSidebarOpen ? 'left-0' : '-left-full'
-        } lg:left-0 w-94 h-screen bg-gray-900 text-white fixed transition-all duration-300 z-40`}
+        className={`
+          fixed top-0 w-72 h-screen bg-gray-900 text-white transition-transform duration-300 z-40
+          ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} 
+          lg:translate-x-0 lg:block
+        `}
       >
         <div className="p-6">
-          <div className="flex justify-center mb-3">
-            {/* Use next/image for optimization */}
+          <div className="flex justify-center mb-6">
             <Image
               src="/images/profile.jpg"
               alt="Profile"
-              width={96} // Provide width and height for optimization
+              width={96}
               height={96}
               className="rounded-full object-cover"
             />
           </div>
-          <i><h1 className="text-2xl font-bold text-center mb-4">Rabin Lucas</h1></i>
+          <i>
+            <h1 className="text-2xl font-bold text-center mb-6">Rabin Lucas</h1>
+          </i>
           <hr />
 
           {/* Social Media Icons */}
-          <div className="flex justify-center space-x-0 mb-2">
+          <div className="flex justify-center space-x-2 mb-4">
             <a
               href="https://linkedin.com/in/your-profile"
               target="_blank"
@@ -73,7 +76,7 @@ const Sidebar = () => {
               <FaLinkedin className="text-2xl text-white hover:text-black" />
             </a>
             <a
-              href="https://wa.me/your-number"
+              href="https://wa.me/+254729923951"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full hover:bg-aqua transition-colors"
@@ -115,26 +118,14 @@ const Sidebar = () => {
           </div>
           <hr />
 
-          <nav className="flex flex-col space-y-0">
-            <a
-              href="#home"
-              onClick={(event) => smoothScroll(event, 'home')}
-              className="hover:text-gray-400"
-            >
+          <nav className="flex flex-col space-y-4">
+            <a href="#home" onClick={(e) => smoothScroll(e, 'home')} className="hover:text-gray-400">
               🏠 Home
             </a>
-            <a
-              href="#about"
-              onClick={(event) => smoothScroll(event, 'about')}
-              className="hover:text-gray-400"
-            >
+            <a href="#about" onClick={(e) => smoothScroll(e, 'about')} className="hover:text-gray-400">
               📘 About Me
             </a>
-            <a
-              href="#facts"
-              onClick={(event) => smoothScroll(event, 'facts')}
-              className="hover:text-gray-400"
-            >
+            <a href="#facts" onClick={(e) => smoothScroll(e, 'facts')} className="hover:text-gray-400">
               📊 Facts
             </a>
             <a
@@ -183,16 +174,17 @@ const Sidebar = () => {
         </div>
 
         {/* Footer Section */}
-        <footer className="absolute bottom-0 w-full p-4 bg-gray-800 text-center">
+        <footer className="absolute bottom-0 w-full p-4 bg-gray-800 text-center hidden lg:block">
           <p className="text-sm">© 2024 Rabin Lucas</p>
         </footer>
       </aside>
 
       {/* Content Area */}
       <div
-        className={`${
-          isSidebarOpen ? 'h-screen overflow-hidden' : ''
-        } transition-all duration-300`}
+        className={`
+          ${isSidebarOpen ? 'h-screen overflow-hidden' : ''}
+          transition-all duration-300
+        `}
       >
         {/* Content goes here */}
       </div>
