@@ -14,9 +14,8 @@ export default function HomePage() {
       <div className="">
         <Head>
           <title>Rabin Lucas</title>
+          <link rel="icon" type="image/png" sizes="32x32" href="/logos/Rabin.jpg"/>
         </Head>
-        
-       
         
         <Home />
         <About />
