@@ -50,9 +50,9 @@ const Projects = () => {
       : projects.filter((project) => project.category === category);
 
   return (
-    <section id="projects">
+    <section id="projects" style={{overflowX: 'hidden'}}>
       <div className="projects-container">
-        <h4 className="text-3xl font-semibold mb-6 text-blue-600">Projects</h4>
+        <h4 className="text-3xl font-semibold mb-6 text-blue-600" style={{paddingLeft:'30px'}}>Projects</h4>
         {/* Centered Categories */}
         <div className="categories">
           <button onClick={() => handleCategoryChange('All')}>All</button>
@@ -69,12 +69,14 @@ const Projects = () => {
               className="project"
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
+              style={{paddingLeft:'20px'}}
             >
               <Image
                 src={project.image}
                 alt={project.title}
-                width={500} // Set a width for the image
-                height={300} // Set a height for the image
+                width={500} 
+                
+                height={project.id === 2 || project.id === 3 || project.id === 4 ? 350 : 300} 
                 className="project-image"
               />
               <div
@@ -111,7 +113,6 @@ const Projects = () => {
           .projects-container {
           width: 100%;
           padding: 100px 20px;
-          margin-left: 20px; /* Added margin-left */
           min-height: 60vh;
           box-sizing: border-box;
   }

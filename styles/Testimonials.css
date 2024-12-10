@@ -1,10 +1,14 @@
 .testimonial-container {
-  padding: 40px 20px;
+  padding: 40px;
   background-size: cover;
   background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-x: hidden;
+}
+#testimonials {
+  overflow-x: hidden;
 }
 
 .testimonial-cards {

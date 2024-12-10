@@ -3,13 +3,13 @@ import { FaPen, FaFilm, FaCamera, FaUsers } from 'react-icons/fa';
 
 const Facts = () => {
   return (
-    <section id="facts" style={{ paddingLeft: '20px' }}>
+    <section id="facts" style={{overflowX: 'hidden' }}>
     <div
       className="bg-cover bg-center p-8 rounded-lg"
       style={{ backgroundImage: 'url(background/back.webp)' }}
     >
-      <h2 className="text-3xl font-semibold mb-6 text-blue-600">Facts</h2>
-      <p className="text-lg mb-6 text-white">
+      <h2 className="text-3xl font-semibold mb-6 text-blue-600" style={{paddingLeft:'30px'}}>Facts</h2>
+      <p className="text-lg mb-6 text-white" style={{paddingLeft:'30px'}}>
         I have gained valuable experience in various roles across the film industry, contributing to each project with creativity, leadership, and technical skills.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

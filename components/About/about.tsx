@@ -11,19 +11,19 @@ const About = () => {
   const calculatedAge = monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthday.getDate()) ? age - 1 : age;
 
   return (
-    <section id="about" style={{ paddingLeft: '20px' }}>
+    <section id="about">
       <div className="bg-blue-100 p-8 rounded-lg">
-        <h2 className="text-3xl font-semibold mb-4 text-blue-600">About</h2>
+        <h2 className="text-3xl font-semibold mb-4 text-blue-600" style={{paddingLeft:'30px'}}>About</h2>
 
         <div>
-          <p className="text-lg mb-6">
-            <span className="font-bold text-blue-500"></span> Hello! I&apos;m Rabin Lucas, a versatile creative professional with extensive experience in film production. As a Film Writer, Casting Director, Director of Photography, Director, Producer, and Film Maker, I have a passion for bringing compelling stories to life. I&apos;m excited to showcase my work and explore potential collaborations that push the boundaries of visual storytelling.
+          <p className="text-lg mb-6"style={{paddingLeft:'30px'}}>
+            <span className="font-bold text-blue-500" ></span> Hello! I&apos;m Rabin Lucas, a versatile creative professional with extensive experience in film production. As a Film Writer, Casting Director, Director of Photography, Director, Producer, and Film Maker, I have a passion for bringing compelling stories to life. I&apos;m excited to showcase my work and explore potential collaborations that push the boundaries of visual storytelling.
           </p>
         </div>
 
         <div className="flex flex-col md:flex-row md:items-start mt-6">
           {/* Image Section */}
-          <div className="md:mr-6">
+          <div className="md:mr-6 flex justify-center mb-6 md:mb-0" style={{paddingLeft:'30px'}}>
             <Image
               src="/images/darkbark.jpg"
               alt="Rabin Lucas"

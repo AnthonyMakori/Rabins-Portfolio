@@ -1,5 +1,16 @@
 import { useState, useEffect } from 'react';
-import { FaLinkedin, FaWhatsapp, FaTwitter, FaFacebook, FaYoutube, FaTiktok, FaBars, FaPencilAlt, FaRegHandshake, FaBuilding } from 'react-icons/fa';
+import { 
+  FaInstagram, 
+  FaWhatsapp, 
+  FaTwitter, 
+  FaFacebook, 
+  FaYoutube, 
+  FaTiktok, 
+  FaBars, 
+  FaPencilAlt, 
+  FaRegHandshake, 
+  FaBuilding 
+} from 'react-icons/fa';
 import Image from 'next/image'; 
 
 const Sidebar = () => {
@@ -37,7 +48,7 @@ const Sidebar = () => {
       {/* Hamburger Icon for Small Screens */}
       <button
         onClick={toggleSidebar}
-        className="lg:hidden fixed top-4 left-4 text-white text-3xl z-50"
+        className="lg:hidden fixed top-4 left-4 text-red-500 text-3xl z-50 transform transition-transform duration-300 hover:scale-110"
       >
         <FaBars />
       </button>
@@ -73,7 +84,7 @@ const Sidebar = () => {
               rel="noopener noreferrer"
               className="p-2 rounded-full hover:bg-aqua transition-colors"
             >
-              <FaLinkedin className="text-2xl text-white hover:text-black" />
+              <FaInstagram className="text-2xl text-white hover:text-black" />
             </a>
             <a
               href="https://wa.me/+254729923951"
