@@ -3,13 +3,18 @@ import React, { useState } from "react";
 const Contact = () => {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
+  const [submitting, setSubmitting] = useState(false); 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const form = e.target as HTMLFormElement;
 
-    // Convert FormData into URLSearchParams correctly
+   
+    setSubmitting(true);
+    setSent(false);
+    setError(false);
+
     const formData = new FormData(form);
     const data = new URLSearchParams();
 
@@ -17,20 +22,26 @@ const Contact = () => {
       data.append(key, value.toString());
     });
 
-    const response = await fetch("https://formspree.io/f/movqzlzj", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: data.toString(), // Use data as string here
-    });
+    try {
+      const response = await fetch("https://formspree.io/f/movqzlzj", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: data.toString(),
+      });
 
-    if (response.ok) {
-      setSent(true);
-      setError(false);
-      form.reset();
-    } else {
+      if (response.ok) {
+        setSent(true);
+        setError(false);
+        form.reset(); 
+      } else {
+        setError(true);
+      }
+    } catch (error) {
       setError(true);
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -150,9 +161,10 @@ const Contact = () => {
                   type="submit"
                   className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition"
                 >
-                  Send Message
+                  {submitting ? "Submitting..." : "Send Message"}
                 </button>
               </div>
+
               {sent && (
                 <p className="text-green-500 mt-2 text-center">
                   Message sent successfully!
