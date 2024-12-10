@@ -9,15 +9,20 @@ const Contact = () => {
 
     const form = e.target as HTMLFormElement;
 
+    // Convert FormData into URLSearchParams correctly
     const formData = new FormData(form);
-    const data = new URLSearchParams(formData as any).toString();
+    const data = new URLSearchParams();
+
+    formData.forEach((value, key) => {
+      data.append(key, value.toString());
+    });
 
     const response = await fetch("https://formspree.io/f/movqzlzj", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: data,
+      body: data.toString(), // Use data as string here
     });
 
     if (response.ok) {
