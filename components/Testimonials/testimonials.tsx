@@ -11,40 +11,40 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    name: 'Rabin Lucas',
+    name: 'Joyce Rema',
     text: 'This is the best service I have ever used. Highly recommended!',
     role: 'Film Writer',
-    profileImage: 'https://via.placeholder.com/100',
+    profileImage: '/images/testi3.jpg',
   },
   {
-    name: 'John Doe',
+    name: 'Kevin Greg',
     text: 'Amazing experience, exceeded my expectations!',
     role: 'Director',
-    profileImage: 'https://via.placeholder.com/100',
+    profileImage: '/images/testi5.jpg',
   },
   {
     name: 'Jane Smith',
     text: 'A game-changer in the industry. Can’t imagine working without it!',
     role: 'Producer',
-    profileImage: 'https://via.placeholder.com/100',
+    profileImage: '/images/testi4.jpg',
   },
   {
     name: 'Alice Johnson',
     text: 'A must-have tool for any professional!',
     role: 'Cinematographer',
-    profileImage: 'https://via.placeholder.com/100',
+    profileImage: '/images/testi6.jpg',
   },
   {
     name: 'Bob Brown',
     text: 'Highly efficient and incredibly easy to use.',
     role: 'Editor',
-    profileImage: 'https://via.placeholder.com/100',
+    profileImage: '/images/testi3.jpg',
   },
   {
     name: 'Charlie Davis',
     text: 'I can’t imagine working without this. It’s indispensable!',
     role: 'Sound Engineer',
-    profileImage: 'https://via.placeholder.com/100',
+    profileImage: '/images/testi1.jpg',
   },
 ];
 
