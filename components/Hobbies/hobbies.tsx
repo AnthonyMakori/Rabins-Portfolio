@@ -2,9 +2,9 @@
 import React from 'react';
 
 const hobbies = [
-  { name: 'Reading', icon: '📚' },
-  { name: 'Traveling', icon: '🌍' },
-  { name: 'Singing', icon: '🎤' },
+  { name: 'Reading', icon: '📚', description: 'I love reading books as it expands my knowledge and lets me dive into different worlds.' },
+  { name: 'Traveling', icon: '🌍', description: 'Traveling allows me to explore new places, experience different cultures, and create lasting memories.' },
+  { name: 'Singing', icon: '🎤', description: 'Singing is my way of expressing emotions and connecting with music on a deeper level.' },
 ];
 
 const Hobbies: React.FC = () => {
@@ -35,9 +35,9 @@ const Hobbies: React.FC = () => {
               {hobby.name}
             </h3>
 
-            {/* Description (Optional) */}
+            {/* Description */}
             <p className="mt-2 text-gray-500 text-sm">
-              {`I really enjoy ${hobby.name.toLowerCase()} as it helps me unwind and recharge.`}
+              {hobby.description}
             </p>
           </div>
         ))}

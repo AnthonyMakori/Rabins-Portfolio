@@ -109,11 +109,12 @@ const Projects = () => {
 
         <style jsx>{`
           .projects-container {
-            width: 100%;
-            padding: 100px 20px;
-            min-height: 60vh;
-            box-sizing: border-box;
-          }
+          width: 100%;
+          padding: 100px 20px;
+          margin-left: 20px; /* Added margin-left */
+          min-height: 60vh;
+          box-sizing: border-box;
+  }
 
           /* Center Categories */
           .categories {

@@ -32,7 +32,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact">
+    <section id="contact" style={{ paddingLeft: '20px' }}>
       <div className="min-h-screen bg-gray-200 py-10">
         <h1 className="text-4xl font-bold text-blue-600 text-center mb-4">
           Contact
@@ -48,9 +48,9 @@ const Contact = () => {
           with you!
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ paddingLeft: '40px',paddingRight:'40px' }}>
           {/* Left Section */}
-          <div className="bg-white p-6 rounded-lg shadow-md md:col-span-1">
+          <div className="bg-white p-6 rounded-lg shadow-md md:col-span-1" style={{ paddingLeft: '20px' }}>
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               Contact Information
             </h2>
@@ -86,7 +86,7 @@ const Contact = () => {
           </div>
 
           {/* Right Section */}
-          <div className="bg-white p-6 rounded-lg shadow-md md:col-span-2">
+          <div className="bg-white p-6 rounded-lg shadow-md md:col-span-2" style={{ paddingRight: '40px' }}>
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               Send a Message
             </h2>
