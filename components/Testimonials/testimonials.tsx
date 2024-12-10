@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image'; // Import the Image component from Next.js
 import '../../styles/Testimonials.css';
 
 interface Testimonial {
@@ -73,37 +74,39 @@ const Testimonials: React.FC = () => {
 
   return (
     <section id="testimonials">
-    <div 
-      className="testimonial-container" 
-      style={{ backgroundImage: 'url(background/back3.webp)' }}
-    >
-      <h4 className='text-3xl font-semibold mb-6 text-blue-600'>Testimonials</h4>
-      <div className="testimonial-cards">
-        {getVisibleTestimonials().map((testimonial, index) => (
-          <div key={index} className="testimonial-card">
-            <img 
-              src={testimonial.profileImage} 
-              alt={testimonial.name} 
-              className="profile-img" 
-            />
-            <p className="testimonial-text">"{testimonial.text}"</p>
-            <p className="testimonial-author">
-              - {testimonial.name}, {testimonial.role}
-            </p>
-          </div>
-        ))}
-      </div>
+      <div 
+        className="testimonial-container" 
+        style={{ backgroundImage: 'url(background/back3.webp)' }}
+      >
+        <h4 className='text-3xl font-semibold mb-6 text-blue-600'>Testimonials</h4>
+        <div className="testimonial-cards">
+          {getVisibleTestimonials().map((testimonial, index) => (
+            <div key={index} className="testimonial-card">
+              <Image 
+                src={testimonial.profileImage} 
+                alt={testimonial.name} 
+                className="profile-img" 
+                width={100} // specify width and height for optimization
+                height={100}
+              />
+              <p className="testimonial-text">&ldquo;{testimonial.text}&rdquo;</p>
+              <p className="testimonial-author">
+                - {testimonial.name}, {testimonial.role}
+              </p>
+            </div>
+          ))}
+        </div>
 
-      <div className="testimonial-navigation">
-        {testimonials.map((_, index) => (
-          <button
-            key={index}
-            className={`dot ${index === currentIndex ? 'active' : ''}`}
-            onClick={() => setCurrentIndex(index)}
-          ></button>
-        ))}
+        <div className="testimonial-navigation">
+          {testimonials.map((_, index) => (
+            <button
+              key={index}
+              className={`dot ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => setCurrentIndex(index)}
+            ></button>
+          ))}
+        </div>
       </div>
-    </div>
     </section>
   );
 };

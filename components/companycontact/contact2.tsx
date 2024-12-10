@@ -23,7 +23,7 @@ const Contact2 = () => {
             setError(false);
             form.current?.reset(); // Reset form after success
           },
-          (error: { text: any }) => {
+          (error: { text: string }) => { // Specify the error type
             console.error("Error:", error.text);
             setError(true);
           }

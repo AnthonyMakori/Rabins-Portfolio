@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 
 const projects = [
   {
@@ -69,9 +70,11 @@ const Projects = () => {
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
+                width={500} // Set a width for the image
+                height={300} // Set a height for the image
                 className="project-image"
               />
               <div
