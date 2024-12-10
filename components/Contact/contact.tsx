@@ -1,46 +1,43 @@
-import React, { useRef, useState } from "react";
-import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
+import React, { useState } from "react";
 
 const Contact = () => {
-  const form = useRef<HTMLFormElement>(null);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
 
-  const sendEmail = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (form.current) {
-      emailjs
-        .sendForm(
-          "YOUR_SERVICE_ID", // Replace with your Service ID
-          "YOUR_TEMPLATE_ID", // Replace with your Template ID
-          form.current,
-          "YOUR_PUBLIC_KEY" // Replace with your Public Key
-        )
-        .then(
-          () => {
-            setSent(true);
-            setError(false);
-            form.current?.reset(); // Reset form after success
-          },
-          (error: EmailJSResponseStatus) => { // Specify the type here
-            console.error("Error:", error.text);
-            setError(true);
-          }
-        );
+    const form = e.target as HTMLFormElement;
+
+    const formData = new FormData(form);
+    const data = new URLSearchParams(formData as any).toString();
+
+    const response = await fetch("https://formspree.io/f/movqzlzj", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: data,
+    });
+
+    if (response.ok) {
+      setSent(true);
+      setError(false);
+      form.reset();
+    } else {
+      setError(true);
     }
   };
 
   return (
-    <section id="contact" style={{ paddingLeft: '20px' }}>
+    <section id="contact">
       <div className="min-h-screen bg-gray-200 py-10">
         <h1 className="text-4xl font-bold text-blue-600 text-center mb-4">
           Contact
         </h1>
-        <p className="text-gray-700 text-center mb-6">
+        <p className="text-gray-700 text-center mb-6" style={{ paddingLeft: '20px', marginRight: '20px' }}>
           Feel free to connect with me via email at{" "}
-          <span className="font-bold">rabinlucas0@gmail.com</span> or through my
-          LinkedIn profile. I am always eager to collaborate, learn, and explore
+          <span className="font-bold">rabinlucas0@gmail.com</span> . I am always eager to collaborate, learn, and explore
           new opportunities.
         </p>
         <p className="text-gray-700 font-bold text-center mb-6">
@@ -48,7 +45,7 @@ const Contact = () => {
           with you!
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ paddingLeft: '40px',paddingRight:'40px' }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6" style={{ paddingLeft: '40px', paddingRight: '40px', overflowX: 'hidden' }}>
           {/* Left Section */}
           <div className="bg-white p-6 rounded-lg shadow-md md:col-span-1" style={{ paddingLeft: '20px' }}>
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
@@ -90,7 +87,7 @@ const Contact = () => {
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               Send a Message
             </h2>
-            <form ref={form} onSubmit={sendEmail} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-gray-700 mb-1" htmlFor="name">
