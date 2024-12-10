@@ -3,14 +3,14 @@ import React, { useState } from "react";
 const Contact = () => {
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
-  const [submitting, setSubmitting] = useState(false); 
+  const [submitting, setSubmitting] = useState(false); // New state for submission
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const form = e.target as HTMLFormElement;
 
-   
+    // Set submitting state to true
     setSubmitting(true);
     setSent(false);
     setError(false);
@@ -34,14 +34,15 @@ const Contact = () => {
       if (response.ok) {
         setSent(true);
         setError(false);
-        form.reset(); 
+        form.reset(); // Clear form on success
       } else {
         setError(true);
       }
-    } catch (error) {
+    } catch (err) {
+      console.error("Error sending message:", err); // Log the error for debugging
       setError(true);
     } finally {
-      setSubmitting(false);
+      setSubmitting(false); // Set submitting state back to false
     }
   };
 
