@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { FaLinkedin, FaWhatsapp, FaTwitter, FaFacebook, FaYoutube, FaTiktok, FaBars, FaPencilAlt, FaRegHandshake, FaBuilding } from 'react-icons/fa';
+import Image from 'next/image'; // Import the Image component for optimization
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -50,10 +50,13 @@ const Sidebar = () => {
       >
         <div className="p-6">
           <div className="flex justify-center mb-3">
-            <img
+            {/* Use next/image for optimization */}
+            <Image
               src="/images/profile.jpg"
               alt="Profile"
-              className="w-24 h-24 rounded-full object-cover"
+              width={96} // Provide width and height for optimization
+              height={96}
+              className="rounded-full object-cover"
             />
           </div>
           <i><h1 className="text-2xl font-bold text-center mb-4">Rabin Lucas</h1></i>
