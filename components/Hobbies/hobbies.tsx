@@ -9,11 +9,11 @@ const hobbies = [
 
 const Hobbies: React.FC = () => {
   return (
-    <section id='hobbies' className="bg-gray-50 py-16 px-4" style={{overflowX: 'hidden'}}>
+    <section id='hobbies' className="bg-gray-50 py-16 px-4" style={{overflowX: 'hidden',  backgroundColor: '#0070f3' }}>
       {/* Header Section */}
-      <div className="text-center mb-12">
-        <h1 className="text-5xl font-bold text-blue-600 mb-4">My Hobbies</h1>
-        <p className="text-lg text-gray-600 max-w-md mx-auto">
+      <div className="text-center mb-12" >
+        <h1 className="text-5xl font-bold text-white mb-4">My Hobbies</h1>
+        <p className="text-lg text-black max-w-md mx-auto">
           Here are a few things I love to do during my free time!
         </p>
       </div>

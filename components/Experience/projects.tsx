@@ -51,10 +51,10 @@ const Projects = () => {
 
   return (
     <section id="projects" style={{overflowX: 'hidden'}}>
-      <div className="projects-container">
+      <div className="projects-container" >
         <h4 className="text-3xl font-semibold mb-6 text-blue-600" style={{paddingLeft:'30px'}}>Projects</h4>
         {/* Centered Categories */}
-        <div className="categories">
+        <div className="categories text-blue-600">
           <button onClick={() => handleCategoryChange('All')}>All</button>
           <button onClick={() => handleCategoryChange('Short Film')}>
             Short Film

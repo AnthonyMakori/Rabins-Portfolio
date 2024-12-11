@@ -33,7 +33,7 @@ const Contact2 = () => {
 
   return (
     <section id="company">
-    <div className="relative min-h-screen">
+    <div className="relative min">
       {/* Video Background */}
       <video
         autoPlay
